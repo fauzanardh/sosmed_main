@@ -1,0 +1,6 @@
+[submodule "sosmed_backend"]
+	path = sosmed_backend
+	url = https://github.com/fauzanardh/sosmed_backend.git
+[submodule "sosmed_frontend"]
+	path = sosmed_frontend
+	url = https://github.com/fauzanardh/sosmed_frontend.git

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./sosmed_frontend
+      dockerfile: Dockerfile
+    command: npm start
+    expose:
+      - 8000
+
+  backend:
+    build:
+      context: ./sosmed_backend
+      dockerfile: Dockerfile
+    command: npm start
+    expose:
+      - 8001
+
+  nginx:
+    build: ./nginx
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    ports:
+      - 80:80
+    depends_on:
+      - frontend
+      - backend
