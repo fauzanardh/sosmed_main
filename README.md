@@ -4,7 +4,7 @@
 - Docker
 - Docker Compose
 
-## How to Run
+## How to Use
 1. Clone this repo
 ```shell
 git clone https://github.com/fauzanardh/sosmed_main.git
