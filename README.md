@@ -25,3 +25,6 @@ docker-compose up --build -d
 ```shell
 git submodule update --remote --merge
 ```
+
+## Test API
+This test api is the example on how to create and manage the api, just follow what the test api does.
