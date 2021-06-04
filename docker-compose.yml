@@ -44,4 +44,6 @@ services:
     depends_on:
       - frontend
       - backend
+    volumes:
+      - ./docker_data/nginx/assets:/var/www/sosmed_backend/assets/
 
