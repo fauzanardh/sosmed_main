@@ -48,3 +48,4 @@ services:
       - backend
     volumes:
       - ./docker_data/nginx/:/var/www/sosmed_backend/
+      - ./docker_data/nginx/keys/:/app/keys
