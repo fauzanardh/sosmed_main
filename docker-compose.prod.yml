@@ -16,13 +16,13 @@ services:
       context: ./sosmed_backend
       dockerfile: Dockerfile
     command: npm start
-    ports:
-      - 8001:8001
+    expose:
+      - 8001
     depends_on:
       - db
       - redis
     env_file:
-      - .env.backend
+      - .env.backend.prod
     volumes:
       - ./docker_data/nginx/assets:/app/nginx/assets
 
@@ -31,9 +31,22 @@ services:
       context: ./sosmed_frontend
       dockerfile: Dockerfile
     command: npm start
-    ports:
-      - 8000:8000
+    expose:
+      - 8000
     env_file:
-      - .env.frontend
+      - .env.frontend.prod
     depends_on:
       - backend
+
+  nginx:
+    build: ./nginx
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - frontend
+      - backend
+    volumes:
+      - ./docker_data/nginx/:/var/www/sosmed_backend/
+      - ./docker_data/nginx/keys/:/app/keys
