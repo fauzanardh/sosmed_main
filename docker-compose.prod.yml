@@ -15,7 +15,7 @@ services:
     build:
       context: ./sosmed_backend
       dockerfile: Dockerfile
-    command: npm start
+    command: npm run start
     expose:
       - 8001
     depends_on:
@@ -24,15 +24,13 @@ services:
     env_file:
       - .env.backend.prod
     volumes:
-      - ./docker_data/nginx/assets:/app/nginx/assets
+      - ./docker_data/nginx/backend/assets:/app/nginx/assets
 
   frontend:
     build:
       context: ./sosmed_frontend
       dockerfile: Dockerfile
     command: npm run build
-    expose:
-      - 8000
     env_file:
       - .env.frontend.prod
     depends_on:

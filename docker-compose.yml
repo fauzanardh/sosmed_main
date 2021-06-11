@@ -24,7 +24,7 @@ services:
     env_file:
       - .env.backend
     volumes:
-      - ./docker_data/nginx/assets:/app/nginx/assets
+      - ./docker_data/nginx/backend/assets:/app/nginx/assets
 
   frontend:
     build:
