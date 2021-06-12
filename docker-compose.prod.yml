@@ -30,7 +30,7 @@ services:
     build:
       context: ./sosmed_frontend
       dockerfile: Dockerfile
-    command: npm run build
+    command: npm run build_serve
     env_file:
       - .env.frontend.prod
     depends_on:
